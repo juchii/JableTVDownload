@@ -6,8 +6,8 @@ def ffmpegEncode(folder_path, file_name, action):
     elif action == 1: #GPU轉檔
         os.chdir(folder_path)
         try:
-            subprocess.call(['ffmpeg', '-i', f'{file_name}.mp4','-c:v', 'h264_nvenc', '-b:v', '10000K',
-                                '-threads', '5', f'f_{file_name}.mp4'])
+            subprocess.call(['ffmpeg', '-i', f'{file_name}.mp4','-c:v', 'h264_nvenc', '-b:v', '3000K',
+                                '-threads', '20', f'f_{file_name}.mp4'])
             os.remove(os.path.join(folder_path, f'{file_name}.mp4'))
             os.rename(os.path.join(folder_path, f'f_{file_name}.mp4'), os.path.join(folder_path, f'{file_name}.mp4'))
             print("轉檔成功!")
